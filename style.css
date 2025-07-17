@@ -1,4 +1,115 @@
-html {
-  height: 100%;
-  width: 100%;
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Um container para centralizar o conteúdo */
+.container {
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+/* Estilo do Cabeçalho */
+header {
+    background-color: #004d40; /* Um verde escuro, cor de futebol */
+    color: #ffffff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Estilo do conteúdo principal */
+main {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+/* Estilo das seções */
+section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    color: #004d40;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 10px;
+}
+
+/* Estilo do Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+.item-lista {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.item-lista h3 {
+    margin-top: 0;
+    color: #004d40;
+}
+
+.item-lista a {
+    text-decoration: none;
+    background-color: #00796b;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+.video-placeholder, .heatmap-placeholder {
+    background-color: #e0e0e0;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 5px;
+    color: #666;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+.stat-item:last-child {
+    border-bottom: none;
+}
+.stat-item span {
+    font-size: 1.1rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #00796b;
+    font-weight: bold;
 }
