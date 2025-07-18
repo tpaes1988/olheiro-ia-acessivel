@@ -1,9 +1,53 @@
 {
   "name": "olheiro-ia-acessivel",
   "version": "1.0.0",
-  "description": "Backend and Frontend for Olheiro IA Acessivel",
   "dependencies": {
     "@supabase/supabase-js": "^2.0.0",
-    "http-server": "^14.1.1"
+    "express": "^4.18.2",
+    "serverless-http": "^3.1.0"
   }
-}
+}```
+*Nós adicionamos `express` e `serverless-http`, que criarão um "mini-servidor" robusto para o nosso backend.*
+
+**Passo 3: O Novo "Cérebro" Unificado (`server.js`)**
+
+Dentro de `netlify/functions`, crie um **único arquivo** chamado `server.js`. Ele vai conter TODOS os nossos "garçons". Apague os outros arquivos de `get-` se ainda existirem.
+
+Cole este código dentro de `netlify/functions/server.js`:
+
+```javascript
+const express = require('express');
+const serverless = require('serverless-http');
+const { createClient } = require('@supabase/supabase-js');
+
+// Conecta ao Supabase
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
+
+const app = express();
+const router = express.Router();
+
+// Rota para buscar TODOS os jogos
+router.get('/jogos', async (req, res) => {
+  try {
+    let { data, error } = await supabase.from('jogos').select('*');
+    if (error) throw error;
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Rota para buscar TODOS os atletas (ainda de mentira, por enquanto)
+router.get('/atletas', (req, res) => {
+    const atletas = [
+        { id: 10, nome: 'Jogador Destaque #7', time: 'Time Azul', posicao: 'Meio-campo' },
+        { id: 11, nome: 'Atacante Veloz #9', time: 'Time Vermelho', posicao: 'Atacante' }
+    ];
+    res.json(atletas);
+});
+
+// Use o router com um prefixo /api
+app.use('/.netlify/functions/server', router);
+
+// Exporta o handler para o Netlify
+module.exports.handler = serverless(app);

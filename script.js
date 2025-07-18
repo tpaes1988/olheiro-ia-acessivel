@@ -11,9 +11,8 @@ async function carregarDadosIniciais() {
 
     // --- BUSCAR JOGOS ---
     try {
-const response = await fetch('https://olheiro-ia-acessivel.onrender.com/get-jogos.js');
-        // const response = await fetch('/.netlify/functions/get-jogos'); // ANTIGO
-// A URL do Render virá aqui
+        // NOVO ENDEREÇO, DENTRO DA MESMA CASA!
+        const response = await fetch('/.netlify/functions/server/jogos');
         if (!response.ok) throw new Error('Erro ao buscar jogos');
         const jogos = await response.json();
         secaoJogos.innerHTML = '<h2>Jogos Analisados</h2>';
@@ -28,9 +27,10 @@ const response = await fetch('https://olheiro-ia-acessivel.onrender.com/get-jogo
         console.error(error);
     }
 
-    // --- BUSCAR ATLETAS (A NOVA PARTE!) ---
+    // --- BUSCAR ATLETAS ---
     try {
-const response = await fetch('https://olheiro-ia-acessivel.onrender.com/get-atletas.js');
+        // NOVO ENDEREÇO, DENTRO DA MESMA CASA!
+        const response = await fetch('/.netlify/functions/server/atletas');
         if (!response.ok) throw new Error('Erro ao buscar atletas');
         const atletas = await response.json();
         secaoAtletas.innerHTML = '<h2>Atletas em Destaque</h2>';
