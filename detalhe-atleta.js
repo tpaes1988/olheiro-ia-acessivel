@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         // *** A MÁGICA ACONTECE AQUI ***
         // Liga para o backend especialista, passando o ID do atleta
-        const response = await fetch(`/.netlify/functions/get-atleta-by-id?id=${atletaId}`);
+const response = await fetch(`https://olheiro-ia-acessivel.onrender.com/get-atleta-by-id.js?id=${atletaId}`);
         if (!response.ok) {
             throw new Error('Falha ao buscar dados do atleta');
         }
