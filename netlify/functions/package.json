@@ -1,0 +1,20 @@
+{
+  "name": "netlify-functions",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0"
+  }
+}
+```   *O que estamos fazendo?* Estamos dando ao nosso backend sua própria identidade e declarando suas dependências diretamente onde ele vive.
+
+**2. Remova o `package.json` Antigo:**
+*   Volte para a pasta principal do seu projeto.
+*   Encontre o arquivo `package.json` que criamos antes (o que está na raiz).
+*   **Delete este arquivo.** Ele não é mais necessário aqui.
+
+**3. Simplifique o `netlify.toml`:**
+*   Abra o arquivo `netlify.toml` na raiz do projeto.
+*   Verifique se ele está na sua forma mais simples. Ele deve conter apenas isso:
+
+```toml
+[build]
+  functions = "netlify/functions"
