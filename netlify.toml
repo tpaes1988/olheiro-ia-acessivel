@@ -1,2 +1,9 @@
 [build]
+  # Esta linha já existia
   functions = "netlify/functions"
+
+# Esta é a nova seção mágica que vai consertar tudo
+[functions]
+  # Diz ao Netlify para tratar cada arquivo .js como um módulo Node.js
+  # e para instalar as dependências do package.json para ele.
+  node_bundler = "esbuild"
