@@ -1,0 +1,9 @@
+{
+  "name": "olheiro-ia-acessivel",
+  "version": "1.0.0",
+  "description": "Backend and Frontend for Olheiro IA Acessivel",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "http-server": "^14.1.1"
+  }
+}

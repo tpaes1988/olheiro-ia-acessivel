@@ -12,6 +12,8 @@ async function carregarDadosIniciais() {
     // --- BUSCAR JOGOS ---
     try {
         const response = await fetch('/.netlify/functions/get-jogos');
+        // const response = await fetch('/.netlify/functions/get-jogos'); // ANTIGO
+// A URL do Render virá aqui
         if (!response.ok) throw new Error('Erro ao buscar jogos');
         const jogos = await response.json();
         secaoJogos.innerHTML = '<h2>Jogos Analisados</h2>';
